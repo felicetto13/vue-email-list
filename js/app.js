@@ -5,9 +5,7 @@ new Vue(
         {
             generateEmailList: [],
         },
-        methods:
-        {
-            generateEmailRandom() {
+        mounted() {
 
                 for (let i = 0; i < 10; i++) {
                     axios
@@ -20,7 +18,10 @@ new Vue(
                 }
 
                 console.log(this.generateEmailList);
-            }
+            
         }
+
+
+
     }
 )
