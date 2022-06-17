@@ -1,22 +1,25 @@
 new Vue(
     {
-        el:"#app",
+        el: "#app",
         data:
         {
-            generateEmailList: []
+            generateEmailList: [],
         },
         methods:
         {
-            generateEmailRandom (){
+            generateEmailRandom() {
 
-                axios
-                .get("https://github.com/felicetto13/vue-email-list.git")
-                .then((axiosResp)=>{
-                    for (let i = 0; i < 10; i++){
-                        this.generateEmailList.push(axiosResp.data.response);
-                    }
-                    
-                })
+                for (let i = 0; i < 10; i++) {
+                    axios
+                        .get("https://flynn.boolean.careers/exercises/api/random/mail")
+                        .then((axiosResp) => {
+                            const emailGenerate = axiosResp.data.response;
+                            this.generateEmailList.push(emailGenerate);
+
+                        })
+                }
+
+                console.log(this.generateEmailList);
             }
         }
     }
